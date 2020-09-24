@@ -148,7 +148,7 @@ class MainViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBar.barStyle = UIBarStyle.black
-        tabBar.addSubview(composeButton)
+        //tabBar.addSubview(composeButton)
         
         // 保存按钮尺寸
         let rect = composeButton.frame

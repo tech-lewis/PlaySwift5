@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        #if __IPHONE_8_1
-//            if (iOS8){
+//        #if __IPHONE_9_0
+//            if (iOS9){
 //                UIUserNotificationType myTypes = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
 //                UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:myTypes categories:nil];
 //                [application registerUserNotificationSettings:settings];
@@ -30,12 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            [application registerForRemoteNotificationTypes:myTypes];
 //        #endif
 
-        if #available(iOS 9.0, *) {
-            //大于ios8的系统需要注册用户协议通知才能实现applicationIconBadgeNumber
-            
-        } else {
-            //UIRemoteNotificationType
-        }
         // 2.初始化window
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
