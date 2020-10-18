@@ -6,38 +6,6 @@
 
 - Swift5 与OC当前的区别和优势
 
-- Swift可以使用协议编程 函数式编程 面向对象编程 但OC只有OOP 而且需要借助ReactiveCocoa实现
-
-- Swift是类型安全的语言，代码中要清晰明确的类型.代码在编译时就会做类型的静态检查，并且会报错显示
-
-- 比OC更安全 能够在开发的时候尽可能早的发现和修正错误，然而OC的编译器只会抱怨出现一些warning
-
-- Swift中enum和结构体 tuple都是值类型 而且功能都增强了??具体增强了哪些？有没有引用计数器
-
-- Swift中的Int Double Float String Array Dictionary其实都是用结构体来实现的 也是值类型的
-
-- 但是OC中NSNumber NSString字符串和集合类型的对象都是指针 使用引用传递的
-
-- Swift中的enum增强了 可以用Int Double Float 还有字符串，更强的是可以有属性和方法，支持泛型和协议扩展等等
-
-- Objective-C中的枚举值就弱很多
-
-- Swift 2.0之后 OC也包括了Generics的支持 但是范型的约束也只是停留在Xcode编译Warning的基础阶段
-
-- Swift 从开发发布的时候就支持了范型 也支持泛型的类型约束等新特性? 类型约束如何使用呢
-
-- 协议与扩展更强大Swift中的协议加强了 和extension generics 关联类型？配合可以实现面向协议编程
-
-- 面向协议编程大大提高代码的灵活性 同时Swift中的protocol还可以用于值的类型 可以用到枚举 structure？？怎么用
-
-- Objective-C中的协议不够灵活不够好? 缺乏强约束？<strong> 默认是require！！！</strong>
-
-- Objective-C中protocol默认是必须实现的 如果不使用optional代价就大 但是使用optional会带来很多问题?crash？
-
-- 函数和闭包在Swift中是一等公民 可以直接定义函数类型的变量 可以作为其他参数传也可以返回某个func
-
-- 而Objective-C中函数还是次等 并且需要selector来包装或block来模拟Swift中的效果
-
   
 
   ```swift
@@ -57,7 +25,6 @@
    
 
 版本的一些注意点
-
 - Xcode 10.2才支持Swift 5.0版本 需要更新系统到Mojave 10.4.3
 - Xcode 9.2版本使用的Swift是4.0.3
 - 要学习最新版本的新特性啊，最低使用Mojave 回去就更新这个系统 买一个U盘来安装
@@ -68,7 +35,7 @@
 
 
 ```swift
-Swift 1.0 在暑假的时候发不 随后Firefox开始使用Swift开发新浏览器项目
+Swift 1.0 在暑假的时候发布 随后Firefox开始使用Swift开发新浏览器项目
 Swift 2.0 包括的NSError类型的强化 错误处理更强了
 Swift 2.2 更新了新功能 包括了Guard和协议的扩展支持
 
