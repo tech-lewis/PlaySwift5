@@ -1,11 +1,3 @@
-//
-//  MultiTabPageViewController.swift
-//  WanTongTian
-//
-//  Created by feijin on 2020/8/3.
-//  Copyright © 2020 苏章桐. All rights reserved.
-//
-
 import UIKit
 import Foundation
 import ApplicationKit
