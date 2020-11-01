@@ -1,0 +1,11 @@
+framework module EnvConfigurationKit {
+  umbrella header "EnvConfigurationKit.h"
+
+  export *
+  module * { export * }
+}
+
+module EnvConfigurationKit.Swift {
+    header "EnvConfigurationKit-Swift.h"
+    requires objc
+}

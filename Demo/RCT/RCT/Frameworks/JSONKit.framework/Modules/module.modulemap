@@ -1,0 +1,11 @@
+framework module JSONKit {
+  umbrella header "JSONKit.h"
+
+  export *
+  module * { export * }
+}
+
+module JSONKit.Swift {
+    header "JSONKit-Swift.h"
+    requires objc
+}
