@@ -10,11 +10,6 @@
      "imageName": "tabbar_message_center"
  },
  {
-     "vcName": "NullViewController",
-     "title": "navigationbar_button_background@2x",
-     "imageName": "navigationbar_button_background@2x"
- },
- {
      "vcName": "SquareTableViewController",
      "title": "购物车",
      "imageName": "tabbar_discover"
