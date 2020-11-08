@@ -16,6 +16,11 @@ class HomeDetailViewController: UIViewController {
         
     }
     
+    func configureTableView()
+    {
+        //_tableNode.view.tableFooterView = [[UIView alloc] init];
+        //_tableNode.view.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
 }
 
 // MARK: - Public

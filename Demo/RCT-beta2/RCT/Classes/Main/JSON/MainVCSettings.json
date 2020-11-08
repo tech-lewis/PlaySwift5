@@ -1,0 +1,22 @@
+[
+ {
+    "vcName": "HomeTableViewController",
+    "title": "首页",
+    "imageName": "tabbar_home"
+ },
+ {
+     "vcName": "MessageTableViewController",
+     "title": "分类",
+     "imageName": "tabbar_message_center"
+ },
+ {
+     "vcName": "SquareTableViewController",
+     "title": "购物车",
+     "imageName": "tabbar_discover"
+ },
+ {
+     "vcName": "ProfileTableViewController",
+     "title": "我的",
+     "imageName": "tabbar_profile"
+ }
+ ]
