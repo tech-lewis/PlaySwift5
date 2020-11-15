@@ -35,6 +35,15 @@
 		043CAF4B2557CDC000619203 /* _ASAsyncTransactionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 043CAF2E2557CDC000619203 /* _ASAsyncTransactionGroup.m */; };
 		043CAF4C2557CDC000619203 /* libAsyncDisplayKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 043CAF312557CDC000619203 /* libAsyncDisplayKit.a */; };
 		0459E348254E6FF400E12061 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0459E347254E6FF400E12061 /* HomeDetailViewController.swift */; };
+		04A669AE2557E90500A691D5 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669A52557E90500A691D5 /* Security.swift */; };
+		04A669AF2557E90500A691D5 /* BIndMobileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669A62557E90500A691D5 /* BIndMobileViewController.swift */; };
+		04A669B02557E90500A691D5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669A72557E90500A691D5 /* LoginViewController.swift */; };
+		04A669B12557E90500A691D5 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669A82557E90500A691D5 /* ForgetPasswordViewController.swift */; };
+		04A669B22557E90500A691D5 /* ThirdLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669A92557E90500A691D5 /* ThirdLoginView.swift */; };
+		04A669B32557E90500A691D5 /* SecurityInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669AA2557E90500A691D5 /* SecurityInputView.swift */; };
+		04A669B42557E90500A691D5 /* RegisterAgreementCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669AB2557E90500A691D5 /* RegisterAgreementCheckView.swift */; };
+		04A669B52557E90500A691D5 /* PasswordLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669AC2557E90500A691D5 /* PasswordLoginViewController.swift */; };
+		04A669B62557E90500A691D5 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A669AD2557E90500A691D5 /* RegisterViewController.swift */; };
 		04F8FB5C254E6460007C9253 /* ApplicationKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8FB54254E63BB007C9253 /* ApplicationKit.framework */; };
 		04F8FB5D254E6460007C9253 /* ApplicationKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8FB54254E63BB007C9253 /* ApplicationKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04F8FB5F254E6462007C9253 /* ComponentKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04F8FB52254E63BB007C9253 /* ComponentKit.framework */; };
@@ -183,6 +192,15 @@
 		043CAF302557CDC000619203 /* ASTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTableView.h; sourceTree = "<group>"; };
 		043CAF312557CDC000619203 /* libAsyncDisplayKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAsyncDisplayKit.a; sourceTree = "<group>"; };
 		0459E347254E6FF400E12061 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		04A669A52557E90500A691D5 /* Security.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
+		04A669A62557E90500A691D5 /* BIndMobileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BIndMobileViewController.swift; sourceTree = "<group>"; };
+		04A669A72557E90500A691D5 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		04A669A82557E90500A691D5 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
+		04A669A92557E90500A691D5 /* ThirdLoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdLoginView.swift; sourceTree = "<group>"; };
+		04A669AA2557E90500A691D5 /* SecurityInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecurityInputView.swift; sourceTree = "<group>"; };
+		04A669AB2557E90500A691D5 /* RegisterAgreementCheckView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterAgreementCheckView.swift; sourceTree = "<group>"; };
+		04A669AC2557E90500A691D5 /* PasswordLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordLoginViewController.swift; sourceTree = "<group>"; };
+		04A669AD2557E90500A691D5 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		04F8FB4E254E63BB007C9253 /* JSONKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = JSONKit.framework; sourceTree = "<group>"; };
 		04F8FB4F254E63BB007C9253 /* LayoutKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LayoutKit.framework; sourceTree = "<group>"; };
 		04F8FB50254E63BB007C9253 /* EnvConfigurationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EnvConfigurationKit.framework; sourceTree = "<group>"; };
@@ -366,6 +384,22 @@
 			path = include;
 			sourceTree = "<group>";
 		};
+		04A669A42557E90500A691D5 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				04A669A52557E90500A691D5 /* Security.swift */,
+				04A669A62557E90500A691D5 /* BIndMobileViewController.swift */,
+				04A669A72557E90500A691D5 /* LoginViewController.swift */,
+				04A669A82557E90500A691D5 /* ForgetPasswordViewController.swift */,
+				04A669A92557E90500A691D5 /* ThirdLoginView.swift */,
+				04A669AA2557E90500A691D5 /* SecurityInputView.swift */,
+				04A669AB2557E90500A691D5 /* RegisterAgreementCheckView.swift */,
+				04A669AC2557E90500A691D5 /* PasswordLoginViewController.swift */,
+				04A669AD2557E90500A691D5 /* RegisterViewController.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
 		04F8FB4D254E6345007C9253 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +471,7 @@
 		4DD8BFE124D6B4F500C9A3F5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				04A669A42557E90500A691D5 /* Security */,
 				4DD8C03224D6B4F500C9A3F5 /* Main */,
 				4DD8BFE224D6B4F500C9A3F5 /* Home */,
 				4DD8BFFC24D6B4F500C9A3F5 /* Libs */,
@@ -715,6 +750,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				043CAF4A2557CDC000619203 /* _ASPendingState.m in Sources */,
+				04A669B62557E90500A691D5 /* RegisterViewController.swift in Sources */,
+				04A669B22557E90500A691D5 /* ThirdLoginView.swift in Sources */,
 				043CAF352557CDC000619203 /* NSMutableAttributedString+TextKitAdditions.m in Sources */,
 				4DD8C05124D6B4F500C9A3F5 /* AFURLRequestSerialization.m in Sources */,
 				4DD8C04F24D6B4F500C9A3F5 /* AFURLSessionManager.m in Sources */,
@@ -736,6 +773,7 @@
 				043CAF3F2557CDC000619203 /* ASImageNode+CGExtras.m in Sources */,
 				043CAF452557CDC000619203 /* ASImageNode.mm in Sources */,
 				043CAF402557CDC000619203 /* ASDisplayNodeExtras.mm in Sources */,
+				04A669B12557E90500A691D5 /* ForgetPasswordViewController.swift in Sources */,
 				4DD8C05724D6B4F500C9A3F5 /* MainViewController.swift in Sources */,
 				043CAF392557CDC000619203 /* ASMutableAttributedStringBuilder.m in Sources */,
 				043CAF432557CDC000619203 /* ASDisplayNode+UIViewBridge.mm in Sources */,
@@ -749,15 +787,20 @@
 				4DD8C03D24D6B4F500C9A3F5 /* ComposeTitleView.swift in Sources */,
 				4DD8C04D24D6B4F500C9A3F5 /* AFHTTPSessionManager.m in Sources */,
 				4DD8C05424D6B4F500C9A3F5 /* AFSecurityPolicy.m in Sources */,
+				04A669B32557E90500A691D5 /* SecurityInputView.swift in Sources */,
 				043CAF382557CDC000619203 /* ASTextNodeTextKitHelpers.mm in Sources */,
 				4DD8C05524D6B4F500C9A3F5 /* ProfileTableViewController.swift in Sources */,
 				4DD8C04324D6B4F500C9A3F5 /* ViewController+MASAdditions.m in Sources */,
 				4DD8C03B24D6B4F500C9A3F5 /* DiscoverTableViewController.swift in Sources */,
 				043CAF412557CDC000619203 /* ASDisplayNode+DebugTiming.mm in Sources */,
 				043CAF482557CDC000619203 /* ASTextNodeCoreTextAdditions.m in Sources */,
+				04A669AE2557E90500A691D5 /* Security.swift in Sources */,
 				043CAF492557CDC000619203 /* ASDisplayNode.mm in Sources */,
 				043CAF422557CDC000619203 /* ASDisplayNode+AsyncDisplay.mm in Sources */,
+				04A669B52557E90500A691D5 /* PasswordLoginViewController.swift in Sources */,
 				4DAA694A251CDFF600EBFB05 /* StatusCell.swift in Sources */,
+				04A669B42557E90500A691D5 /* RegisterAgreementCheckView.swift in Sources */,
+				04A669AF2557E90500A691D5 /* BIndMobileViewController.swift in Sources */,
 				4DD8C05324D6B4F500C9A3F5 /* AFNetworkReachabilityManager.m in Sources */,
 				043CAF4B2557CDC000619203 /* _ASAsyncTransactionGroup.m in Sources */,
 				043CAF332557CDC000619203 /* ASTextNode.mm in Sources */,
@@ -775,6 +818,7 @@
 				4DD8C04524D6B4F500C9A3F5 /* MASConstraintMaker.m in Sources */,
 				4DD8C03924D6B4F500C9A3F5 /* TLFilesBrowserViewController.swift in Sources */,
 				4DD8C03C24D6B4F500C9A3F5 /* UIButton+Extension.swift in Sources */,
+				04A669B02557E90500A691D5 /* LoginViewController.swift in Sources */,
 				4DD8C04224D6B4F500C9A3F5 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
