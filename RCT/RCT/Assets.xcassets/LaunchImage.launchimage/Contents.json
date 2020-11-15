@@ -34,6 +34,7 @@
     },
     {
       "extent" : "full-screen",
+      "filename" : "Default-812h@3x.png",
       "idiom" : "iphone",
       "minimum-system-version" : "11.0",
       "orientation" : "portrait",
