@@ -14,6 +14,7 @@ class MainViewController: UITabBarController {
         print()
         let sb = UIStoryboard(name: "ComposeViewController", bundle: nil)
         let vc = sb.instantiateInitialViewController()!
+        vc.modalPresentationStyle = .custom
         present(vc, animated: true) {
             //
         }
@@ -59,7 +60,7 @@ class MainViewController: UITabBarController {
         // 1.添加所有子控制器
         addChildViewControllers()
         // iOS7以后只需要设置tintColor, 那么图片和文字都会按照tintColor渲染 242 78 86
-        tabBar.tintColor = UIColor.init(red: 242/255.0, green: 78/255.0, blue: 86/255.0, alpha: 1)
+        tabBar.tintColor = UIColor.init(red: 255/255.0, green: 119/255.0, blue: 0/255.0, alpha: 1)
         
         
         var car  = "11111";
@@ -148,7 +149,7 @@ class MainViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBar.barStyle = UIBarStyle.black
-        //tabBar.addSubview(composeButton)
+        tabBar.addSubview(composeButton)
         
         // 保存按钮尺寸
         let rect = composeButton.frame
