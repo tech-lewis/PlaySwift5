@@ -18,7 +18,7 @@
 #import "_ASScopeTimer.h"
 #import "ASDisplayNodeExtras.h"
 
-@interface ASDisplayNode () <UIGestureRecognizerDelegate>
+@interface ASDisplayNode () <UIGestureRecognizerDelegate, CALayerDelegate>
 
 /**
  *
@@ -47,6 +47,22 @@ BOOL ASDisplayNodeSubclassOverridesSelector(Class subclass, SEL selector)
   return (superclassIMP != subclassIMP);
 }
 
+CGFloat ASDisplayNodeScreenScale()
+{
+  static CGFloat screenScale = 0.0;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    if ([NSThread isMainThread]) {
+      screenScale = [[UIScreen mainScreen] scale];
+    } else {
+      dispatch_sync(dispatch_get_main_queue(), ^{
+        screenScale = [[UIScreen mainScreen] scale];
+      });
+    }
+  });
+  return screenScale;
+}
+
 + (void)initialize
 {
   if (self == [ASDisplayNode class]) {
@@ -56,6 +72,7 @@ BOOL ASDisplayNodeSubclassOverridesSelector(Class subclass, SEL selector)
   // Subclasses should never override these
   ASDisplayNodeAssert(!ASDisplayNodeSubclassOverridesSelector(self, @selector(calculatedSize)), @"Subclass %@ must not override calculatedSize method", NSStringFromClass(self));
   ASDisplayNodeAssert(!ASDisplayNodeSubclassOverridesSelector(self, @selector(measure:)), @"Subclass %@ must not override measure method", NSStringFromClass(self));
+  ASDisplayNodeAssert(!ASDisplayNodeSubclassOverridesSelector(self, @selector(recursivelyReclaimMemory)), @"Subclass %@ must not override recursivelyReclaimMemory method", NSStringFromClass(self));
 }
 
 + (BOOL)layerBackedNodesEnabled
@@ -73,14 +90,44 @@ BOOL ASDisplayNodeSubclassOverridesSelector(Class subclass, SEL selector)
   return [_ASDisplayLayer class];
 }
 
-#pragma mark - NSObject Overrides
+#pragma mark - Lifecycle
+
+// Avoid recursive loops if a subclass implements an init method that calls -initWith*Class:
+- (void)_initializeInstance
+{
+  _contentsScaleForDisplay = ASDisplayNodeScreenScale();
+  
+  _displaySentinel = [[ASSentinel alloc] init];
+  
+  _flags.inWindow = NO;
+  _flags.displaysAsynchronously = YES;
+  
+  // As an optimization, it may be worth a caching system that performs these checks once per class in +initialize (see above).
+  _flags.implementsDisplay = [[self class] respondsToSelector:@selector(drawRect:withParameters:isCancelled:isRasterizing:)] || [self.class respondsToSelector:@selector(displayWithParameters:isCancelled:)];
+  
+  _flags.hasClassDisplay = ([[self class] respondsToSelector:@selector(displayWithParameters:isCancelled:)] ? 1 : 0);
+  _flags.hasWillDisplayAsyncLayer = ([self respondsToSelector:@selector(willDisplayAsyncLayer:)] ? 1 : 0);
+  _flags.hasDrawParametersForAsyncLayer = ([self respondsToSelector:@selector(drawParametersForAsyncLayer:)] ? 1 : 0);
+}
+
+- (id)init
+{
+  if (!(self = [super init]))
+    return nil;
+  
+  [self _initializeInstance];
+  
+  return self;
+}
 
 - (id)initWithViewClass:(Class)viewClass
 {
-  if (!(self = [self init]))
+  if (!(self = [super init]))
     return nil;
 
   ASDisplayNodeAssert([viewClass isSubclassOfClass:[UIView class]], @"should initialize with a subclass of UIView");
+  
+  [self _initializeInstance];
   _viewClass = viewClass;
   _flags.isSynchronous = ![viewClass isSubclassOfClass:[_ASDisplayView class]];
 
@@ -89,36 +136,15 @@ BOOL ASDisplayNodeSubclassOverridesSelector(Class subclass, SEL selector)
 
 - (id)initWithLayerClass:(Class)layerClass
 {
-  if (!(self = [self init]))
+  if (!(self = [super init]))
     return nil;
-
+  
   ASDisplayNodeAssert([layerClass isSubclassOfClass:[CALayer class]], @"should initialize with a subclass of CALayer");
 
+  [self _initializeInstance];
   _layerClass = layerClass;
   _flags.isSynchronous = ![layerClass isSubclassOfClass:[_ASDisplayLayer class]];
-
   _flags.isLayerBacked = YES;
-
-  return self;
-}
-
-- (id)init
-{
-  self = [super init];
-  if (!self) return nil;
-
-  _contentsScaleForDisplay = [[UIScreen mainScreen] scale];
-
-  _displaySentinel = [[ASSentinel alloc] init];
-
-  _flags.inWindow = NO;
-  _flags.displaysAsynchronously = YES;
-
-  _flags.implementsDisplay = [[self class] respondsToSelector:@selector(drawRect:withParameters:isCancelled:isRasterizing:)] || [self.class respondsToSelector:@selector(displayWithParameters:isCancelled:)];
-
-  _flags.hasWillDisplayAsyncLayer = ([self respondsToSelector:@selector(willDisplayAsyncLayer:)] ? 1 : 0);
-  _flags.hasClassDisplay = ([[self class] respondsToSelector:@selector(displayWithParameters:isCancelled:)] ? 1 : 0);
-  _flags.hasDrawParametersForAsyncLayer = ([self respondsToSelector:@selector(drawParametersForAsyncLayer:)] ? 1 : 0);
 
   return self;
 }
@@ -141,9 +167,8 @@ BOOL ASDisplayNodeSubclassOverridesSelector(Class subclass, SEL selector)
 
   _view = nil;
   _subnodes = nil;
-  if (_flags.isLayerBacked) {
+  if (_flags.isLayerBacked)
     _layer.delegate = nil;
-  }
   _layer = nil;
 
   [self __setSupernode:nil];
@@ -575,9 +600,9 @@ static inline CATransform3D _calculateTransformFromReferenceToTarget(ASDisplayNo
 - (id<CAAction>)actionForLayer:(CALayer *)layer forKey:(NSString *)event
 {
   if (event == kCAOnOrderIn) {
-    [self __appear];
+    [self __enterHierarchy];
   } else if (event == kCAOnOrderOut) {
-    [self __disappear];
+    [self __exitHierarchy];
   }
 
   ASDisplayNodeAssert(_flags.isLayerBacked, @"We shouldn't get called back here if there is no layer");
@@ -948,40 +973,45 @@ static NSInteger incrementIfFound(NSInteger i) {
   return NO;
 }
 
-- (void)__appear
+- (void)__enterHierarchy
 {
   ASDisplayNodeAssertMainThread();
-  ASDisplayNodeAssert(!_flags.isInAppear, @"Should not cause recursive __appear");
+  ASDisplayNodeAssert(!_flags.isInEnterHierarchy, @"Should not cause recursive __enterHierarchy");
   if (!self.inWindow && !_flags.visibilityNotificationsDisabled && ![self __hasParentWithVisibilityNotificationsDisabled]) {
     self.inWindow = YES;
-    _flags.isInAppear = YES;
+    _flags.isInEnterHierarchy = YES;
     if (self.shouldRasterizeDescendants) {
       // Nodes that are descendants of a rasterized container do not have views or layers, and so cannot receive visibility notifications directly via orderIn/orderOut CALayer actions.  Manually send visibility notifications to rasterized descendants.
       [self _recursiveWillEnterHierarchy];
     } else {
       [self willEnterHierarchy];
     }
-    _flags.isInAppear = NO;
+    _flags.isInEnterHierarchy = NO;
+    
+    CALayer *layer = self.layer;
+    if (!self.layer.contents) {
+      [layer setNeedsDisplay];
+    }
   }
 }
 
-- (void)__disappear
+- (void)__exitHierarchy
 {
   ASDisplayNodeAssertMainThread();
-  ASDisplayNodeAssert(!_flags.isInDisappear, @"Should not cause recursive __disappear");
+  ASDisplayNodeAssert(!_flags.isInExitHierarchy, @"Should not cause recursive __exitHierarchy");
   if (self.inWindow && !_flags.visibilityNotificationsDisabled && ![self __hasParentWithVisibilityNotificationsDisabled]) {
     self.inWindow = NO;
 
     [self.asyncLayer cancelAsyncDisplay];
 
-    _flags.isInDisappear = YES;
+    _flags.isInExitHierarchy = YES;
     if (self.shouldRasterizeDescendants) {
       // Nodes that are descendants of a rasterized container do not have views or layers, and so cannot receive visibility notifications directly via orderIn/orderOut CALayer actions.  Manually send visibility notifications to rasterized descendants.
       [self _recursiveDidExitHierarchy];
     } else {
       [self didExitHierarchy];
     }
-    _flags.isInDisappear = NO;
+    _flags.isInExitHierarchy = NO;
   }
 }
 
@@ -991,9 +1021,9 @@ static NSInteger incrementIfFound(NSInteger i) {
     return;
   }
 
-  _flags.isInAppear = YES;
+  _flags.isInEnterHierarchy = YES;
   [self willEnterHierarchy];
-  _flags.isInAppear = NO;
+  _flags.isInEnterHierarchy = NO;
 
   for (ASDisplayNode *subnode in self.subnodes) {
     [subnode _recursiveWillEnterHierarchy];
@@ -1006,9 +1036,9 @@ static NSInteger incrementIfFound(NSInteger i) {
     return;
   }
 
-  _flags.isInDisappear = YES;
+  _flags.isInExitHierarchy = YES;
   [self didExitHierarchy];
-  _flags.isInDisappear = NO;
+  _flags.isInExitHierarchy = NO;
 
   for (ASDisplayNode *subnode in self.subnodes) {
     [subnode _recursiveDidExitHierarchy];
@@ -1077,15 +1107,28 @@ static NSInteger incrementIfFound(NSInteger i) {
 - (void)willEnterHierarchy
 {
   ASDisplayNodeAssertMainThread();
-  ASDisplayNodeAssert(_flags.isInAppear, @"You should never call -willEnterHierarchy directly. Appearance is automatically managed by ASDisplayNode");
-  ASDisplayNodeAssert(!_flags.isInDisappear, @"ASDisplayNode inconsistency. __appear and __disappear are mutually exclusive");
+  ASDisplayNodeAssert(_flags.isInEnterHierarchy, @"You should never call -willEnterHierarchy directly. Appearance is automatically managed by ASDisplayNode");
+  ASDisplayNodeAssert(!_flags.isInExitHierarchy, @"ASDisplayNode inconsistency. __enterHierarchy and __exitHierarchy are mutually exclusive");
 }
 
 - (void)didExitHierarchy
 {
   ASDisplayNodeAssertMainThread();
-  ASDisplayNodeAssert(_flags.isInDisappear, @"You should never call -didExitHierarchy directly. Appearance is automatically managed by ASDisplayNode");
-  ASDisplayNodeAssert(!_flags.isInAppear, @"ASDisplayNode inconsistency. __appear and __disappear are mutually exclusive");
+  ASDisplayNodeAssert(_flags.isInExitHierarchy, @"You should never call -didExitHierarchy directly. Appearance is automatically managed by ASDisplayNode");
+  ASDisplayNodeAssert(!_flags.isInEnterHierarchy, @"ASDisplayNode inconsistency. __enterHierarchy and __exitHierarchy are mutually exclusive");
+}
+
+- (void)reclaimMemory
+{
+  self.layer.contents = nil;
+}
+
+- (void)recursivelyReclaimMemory
+{
+  for (ASDisplayNode *subnode in self.subnodes) {
+    [subnode recursivelyReclaimMemory];
+  }
+  [self reclaimMemory];
 }
 
 - (void)layout
@@ -1290,13 +1333,13 @@ static void _recursiveSetPreventOrCancelDisplay(ASDisplayNode *node, CALayer *la
   // Set the flag on the node.  If this is a pure layer (no node) then this has no effect (plain layers don't support preventing/cancelling display).
   node.preventOrCancelDisplay = flag;
 
-  if (layer) {
+  if (layer && !node.shouldRasterizeDescendants) {
     // If there is a layer, recurse down the layer hierarchy to set the flag on descendants.  This will cover both layer-based and node-based children.
     for (CALayer *sublayer in layer.sublayers) {
       _recursiveSetPreventOrCancelDisplay(nil, sublayer, flag);
     }
   } else {
-    // If there is no layer (view not loaded yet), recurse down the subnode hierarchy to set the flag on descendants.  This covers only node-based children, but for a node whose view is not loaded it can't possibly have nodeless children.
+    // If there is no layer (view not loaded yet) or this node rasterizes descendants (there won't be a layer tree to traverse), recurse down the subnode hierarchy to set the flag on descendants.  This covers only node-based children, but for a node whose view is not loaded it can't possibly have nodeless children.
     for (ASDisplayNode *subnode in node.subnodes) {
       _recursiveSetPreventOrCancelDisplay(subnode, nil, flag);
     }
@@ -1399,91 +1442,6 @@ static void _recursiveSetPreventOrCancelDisplay(ASDisplayNode *node, CALayer *la
     });
   });
 
-}
-
-- (void)replaceSubnodeAsynchronously:(ASDisplayNode *)old withNode:(ASDisplayNode *)replacement completion:(void(^)(BOOL cancelled, ASDisplayNode *replacement, ASDisplayNode *oldSubnode))completion
-{
-
-  ASDisplayNodeAssert(old.supernode == self, @"Must replace something that is actually a subnode. You passed: %@", old);
-  ASDisplayNodeAssert(!replacement.nodeLoaded, @"Can't async size something that already has a view, since we currently have no way to convert a viewed node into a viewless one...");
-
-  // If we're already marked for replacement, cancel the pending request
-  ASSentinel *sentinel = [old _asyncReplaceSentinel];
-  uint32_t sentinelValue = [sentinel increment];
-
-  // Enqueue async sizing on our argument
-  [replacement _enqueueAsyncSizingWithSentinel:sentinel completion:^(ASDisplayNode *replacementCompletedNode) {
-    // Sizing is done; swap with our other view
-    // Check sentinel one more time in case it changed during sizing
-    if (replacementCompletedNode && sentinel.value == sentinelValue) {
-      if (old.supernode) {
-        if (old.supernode.inWindow) {
-          // Now wait for async display before notifying delegate that replacement is complete
-
-          // When async sizing is complete, add subnode below placeholder with 0 alpha
-          CGFloat replacementAlpha = replacement.alpha;
-          BOOL wasAsyncTransactionContainer = replacement.asyncdisplaykit_asyncTransactionContainer;
-          [old.supernode insertSubnode:replacement belowSubnode:old];
-
-          replacementCompletedNode.alpha = 0.0;
-          replacementCompletedNode.asyncdisplaykit_asyncTransactionContainer = YES;
-
-          ASDisplayNodeCAssert(replacementCompletedNode.nodeLoaded, @".layer shouldn't be the thing to load the view");
-
-          [replacement.layer.asyncdisplaykit_asyncTransaction addCompletionBlock:^(id<NSObject> unused, BOOL canceled) {
-            ASDisplayNodeCAssertMainThread();
-
-            canceled |= (sentinel.value != sentinelValue);
-
-            replacementCompletedNode.alpha = replacementAlpha;
-            replacementCompletedNode.asyncdisplaykit_asyncTransactionContainer = wasAsyncTransactionContainer;
-
-            if (!canceled) {
-              [old removeFromSupernode];
-            } else {
-              [replacementCompletedNode removeFromSupernode];
-            }
-
-            completion(canceled, replacementCompletedNode, old);
-          }];
-        } else {
-          // Not in window, don't wait for async display
-          [old.supernode replaceSubnode:old withSubnode:replacement];
-          completion(NO, replacementCompletedNode, old);
-        }
-
-      } else { // Old has been moved no longer to be in the hierarchy
-        // TODO: add code to removeFromSupernode and hook UIView methods to cancel sentinel here?
-        @throw [NSException exceptionWithName:NSInvalidArgumentException reason:@"Tried to replaceSubnodeAsynchronously an ASDisplayNode, but then removed it from the hierarchy... what did you mean?" userInfo:nil];
-
-        completion(NO, replacementCompletedNode, old);
-      }
-    } else { // If we were cancelled
-      completion(YES, nil, nil);
-    }
-  }];
-
-
-}
-
-- (ASDisplayNode *)addSubnodeAsynchronously:(ASDisplayNode *)replacement completion:(void(^)(ASDisplayNode *fullySizedSubnode))completion
-{
-  ASDisplayNodeAssertThreadAffinity(self);
-
-  // Create a placeholder ASDisplayNode that saves this guy's place in the view hierarchy for when things return later
-  ASDisplayNode *placeholder = [[ASDisplayNode alloc] init];
-
-  [self addSubnode:placeholder];
-  [self replaceSubnodeAsynchronously:placeholder withNode:replacement completion:^(BOOL cancelled, ASDisplayNode *replacementBlock, ASDisplayNode *placeholderBlock) {
-    if (replacementBlock && placeholderBlock && !cancelled) {
-      [placeholderBlock removeFromSupernode];
-      completion(replacementBlock);
-    } else {
-      [placeholderBlock removeFromSupernode];
-    }
-  }];
-
-  return placeholder;
 }
 
 @end

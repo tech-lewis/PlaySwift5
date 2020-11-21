@@ -8,10 +8,10 @@
 
 #import <pthread.h>
 
-#import "_ASDisplayLayer.h"
-#import "ASAssert.h"
-#import "ASDisplayNode.h"
-#import "ASThread.h"
+#import "_ASDisplayLayer.h>
+#import "ASAssert.h>
+#import "ASDisplayNode.h>
+#import "ASThread.h>
 
 
 /**
@@ -74,7 +74,7 @@
  *
  * @discussion This is the best time to add gesture recognizers to the view.
  */
-- (void)didLoad;
+- (void)didLoad ASDISPLAYNODE_REQUIRES_SUPER;
 
 
 /** @name Layout */
@@ -179,6 +179,7 @@
  * @discussion Subclasses should override this if they don't want their contentsScale changed.
  *
  * @note This changes an internal property.
+ * -setNeedsDisplay is also available to trigger display without changing contentsScaleForDisplay.
  * @see contentsScaleForDisplay
  */
 - (void)setNeedsDisplayAtScale:(CGFloat)contentsScale;
@@ -262,7 +263,22 @@
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event;
 
 
-/** Description */
+/** @name Observing node-related changes */
+
+
+// Called just before the view is added to a superview.
+- (void)willEnterHierarchy;
+
+// Called after the view is removed from the window.
+- (void)didExitHierarchy;
+
+// Called by -recursivelyReclaimMemory.  Provides an opportunity to clear backing store and other memory-intensive intermediates,
+// such as text layout managers or downloaded content that can be written to a disk cache.
+// Base class implements self.contents = nil, clearing any backing store, for asynchronous regeneration when needed.
+- (void)reclaimMemory;
+
+
+/** @name Description */
 
 
 /**

@@ -222,32 +222,6 @@
 - (void)replaceSubnode:(ASDisplayNode *)subnode withSubnode:(ASDisplayNode *)replacementSubnode;
 
 /** 
- * @abstract Add a subnode, but have it size asynchronously on a background queue.
- *
- * @param subnode The unsized subnode to insert into the view hierarchy
- * @param completion The completion callback will be called on the main queue after the subnode has been inserted in 
- * place of the placeholder.
- *
- * @return A placeholder node is inserted into the hierarchy where the node will be. The placeholder can be moved around 
- * in the hiercharchy while the view is sizing. Once sizing is complete on the background queue, this placeholder will 
- * be removed and the replacement will be put at its place.
- */
-- (ASDisplayNode *)addSubnodeAsynchronously:(ASDisplayNode *)subnode
-                              completion:(void(^)(ASDisplayNode *replacement))completion;
-
-/** 
- * @abstract Replace a subnode, but have it size asynchronously on a background queue.
- *
- * @param subnode A subnode of self.
- * @param replacementSubnode A node with which to replace subnode.
- * @param completion The completion callback will be called on the main queue after the replacementSubnode has replaced 
- * subnode.
- */
-- (void)replaceSubnodeAsynchronously:(ASDisplayNode *)subnode
-                            withNode:(ASDisplayNode *)replacementSubnode
-                          completion:(void(^)(BOOL cancelled, ASDisplayNode *replacement, ASDisplayNode *oldSubnode))completion;
-
-/** 
  * @abstract Remove this node from its supernode.
  *
  * @discussion The node's view will be automatically removed from the supernode's view.
@@ -262,17 +236,7 @@
 /** 
  * @abstract The receiver's supernode.
  */
-@property (nonatomic, readonly, assign) ASDisplayNode *supernode;
-
-
-/** @name Observing node-related changes */
-
-
-// Called just before the view is added to a superview.
-- (void)willEnterHierarchy;
-
-// Called after the view is removed from the window.
-- (void)didExitHierarchy;
+@property (nonatomic, readonly, weak) ASDisplayNode *supernode;
 
 
 /** @name Drawing and Updating the View */
@@ -357,6 +321,19 @@
  * @see preventOrCancelDisplay
  */
 - (void)recursiveSetPreventOrCancelDisplay:(BOOL)flag;
+
+/**
+ * @abstract Calls -reclaimMemory on the receiver and its subnode hierarchy.
+ *
+ * @discussion Clears backing stores and other memory-intensive intermediates.
+ * If the node is removed from a visible hierarchy and then re-added, it will automatically trigger a new asynchronous display,
+ * as long as preventOrCancelDisplay is not set.
+ * If the node remains in the hierarchy throughout, -setNeedsDisplay is required to trigger a new asynchronous display.
+ *
+ * @see preventOrCancelDisplay and setNeedsDisplay
+ */
+
+- (void)recursivelyReclaimMemory;
 
 
 /** @name Hit Testing */

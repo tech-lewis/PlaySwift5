@@ -7,6 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0480CB742568F88900E26393 /* _ASAsyncTransactionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB322568F88900E26393 /* _ASAsyncTransactionContainer.m */; };
+		0480CB752568F88900E26393 /* ASTextNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB332568F88900E26393 /* ASTextNode.mm */; };
+		0480CB762568F88900E26393 /* UIView+ASConvenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB3C2568F88900E26393 /* UIView+ASConvenience.m */; };
+		0480CB772568F88900E26393 /* NSMutableAttributedString+TextKitAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB3F2568F88900E26393 /* NSMutableAttributedString+TextKitAdditions.m */; };
+		0480CB782568F88900E26393 /* ASTextNodeWordKerner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB402568F88900E26393 /* ASTextNodeWordKerner.m */; };
+		0480CB792568F88900E26393 /* ASHighlightOverlayLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB412568F88900E26393 /* ASHighlightOverlayLayer.m */; };
+		0480CB7A2568F88900E26393 /* ASTextNodeTextKitHelpers.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB452568F88900E26393 /* ASTextNodeTextKitHelpers.mm */; };
+		0480CB7B2568F88900E26393 /* ASMutableAttributedStringBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB462568F88900E26393 /* ASMutableAttributedStringBuilder.m */; };
+		0480CB7C2568F88900E26393 /* _ASCoreAnimationExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB482568F88900E26393 /* _ASCoreAnimationExtras.mm */; };
+		0480CB7D2568F88900E26393 /* ASControlNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB4D2568F88900E26393 /* ASControlNode.m */; };
+		0480CB7E2568F88900E26393 /* _ASDisplayView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB4E2568F88900E26393 /* _ASDisplayView.mm */; };
+		0480CB7F2568F88900E26393 /* _ASAsyncTransaction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB532568F88900E26393 /* _ASAsyncTransaction.m */; };
+		0480CB802568F88900E26393 /* ASTextNodeShadower.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB542568F88900E26393 /* ASTextNodeShadower.m */; };
+		0480CB812568F88900E26393 /* ASImageNode+CGExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB552568F88900E26393 /* ASImageNode+CGExtras.m */; };
+		0480CB822568F88900E26393 /* ASDisplayNodeExtras.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB5A2568F88900E26393 /* ASDisplayNodeExtras.mm */; };
+		0480CB832568F88900E26393 /* ASDisplayNode+DebugTiming.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB5B2568F88900E26393 /* ASDisplayNode+DebugTiming.mm */; };
+		0480CB842568F88900E26393 /* ASDisplayNode+AsyncDisplay.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB5D2568F88900E26393 /* ASDisplayNode+AsyncDisplay.mm */; };
+		0480CB852568F88900E26393 /* ASDisplayNode+UIViewBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB5E2568F88900E26393 /* ASDisplayNode+UIViewBridge.mm */; };
+		0480CB862568F88900E26393 /* _ASDisplayLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB5F2568F88900E26393 /* _ASDisplayLayer.mm */; };
+		0480CB872568F88900E26393 /* ASImageNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB622568F88900E26393 /* ASImageNode.mm */; };
+		0480CB882568F88900E26393 /* ASSentinel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB642568F88900E26393 /* ASSentinel.m */; };
+		0480CB892568F88900E26393 /* ASTextNodeRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB672568F88900E26393 /* ASTextNodeRenderer.mm */; };
+		0480CB8A2568F88900E26393 /* ASTextNodeCoreTextAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB6A2568F88900E26393 /* ASTextNodeCoreTextAdditions.m */; };
+		0480CB8B2568F88900E26393 /* ASDisplayNode.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB6C2568F88900E26393 /* ASDisplayNode.mm */; };
+		0480CB8C2568F88900E26393 /* _ASPendingState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB6E2568F88900E26393 /* _ASPendingState.m */; };
+		0480CB8D2568F88900E26393 /* _ASAsyncTransactionGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB702568F88900E26393 /* _ASAsyncTransactionGroup.m */; };
+		0480CB8E2568F88900E26393 /* libAsyncDisplayKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0480CB732568F88900E26393 /* libAsyncDisplayKit.a */; };
+		0480CB902568F9AF00E26393 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB8F2568F9AF00E26393 /* MainNavigationViewController.swift */; };
+		0480CB922568F9C700E26393 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB912568F9C700E26393 /* HomeDetailViewController.swift */; };
 		4DAA694A251CDFF600EBFB05 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6949251CDFF600EBFB05 /* StatusCell.swift */; };
 		4DAA694C251CE00700EBFB05 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA694B251CE00700EBFB05 /* StatusModel.swift */; };
 		4DD8BFD724D6B3F900C9A3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8BFD624D6B3F900C9A3F5 /* Assets.xcassets */; };
@@ -49,6 +78,77 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0480CB2F2568F88900E26393 /* ASDisplayNode+Subclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASDisplayNode+Subclasses.h"; sourceTree = "<group>"; };
+		0480CB302568F88900E26393 /* ASImageNode+CGExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASImageNode+CGExtras.h"; sourceTree = "<group>"; };
+		0480CB312568F88900E26393 /* ASDisplayNodeExtraIvars.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayNodeExtraIvars.h; sourceTree = "<group>"; };
+		0480CB322568F88900E26393 /* _ASAsyncTransactionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ASAsyncTransactionContainer.m; sourceTree = "<group>"; };
+		0480CB332568F88900E26393 /* ASTextNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASTextNode.mm; sourceTree = "<group>"; };
+		0480CB342568F88900E26393 /* ASTextNodeShadower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextNodeShadower.h; sourceTree = "<group>"; };
+		0480CB352568F88900E26393 /* ASTextNodeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextNodeRenderer.h; sourceTree = "<group>"; };
+		0480CB362568F88900E26393 /* ASTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextNode.h; sourceTree = "<group>"; };
+		0480CB372568F88900E26393 /* _ASAsyncTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASAsyncTransaction.h; sourceTree = "<group>"; };
+		0480CB382568F88900E26393 /* ASAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAssert.h; sourceTree = "<group>"; };
+		0480CB392568F88900E26393 /* _ASAsyncTransactionContainer+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "_ASAsyncTransactionContainer+Private.h"; sourceTree = "<group>"; };
+		0480CB3A2568F88900E26393 /* _ASDisplayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASDisplayLayer.h; sourceTree = "<group>"; };
+		0480CB3B2568F88900E26393 /* ASBaseDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASBaseDefines.h; sourceTree = "<group>"; };
+		0480CB3C2568F88900E26393 /* UIView+ASConvenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ASConvenience.m"; sourceTree = "<group>"; };
+		0480CB3D2568F88900E26393 /* ASImageProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageProtocols.h; sourceTree = "<group>"; };
+		0480CB3E2568F88900E26393 /* ASDealloc2MainObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDealloc2MainObject.h; sourceTree = "<group>"; };
+		0480CB3F2568F88900E26393 /* NSMutableAttributedString+TextKitAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+TextKitAdditions.m"; sourceTree = "<group>"; };
+		0480CB402568F88900E26393 /* ASTextNodeWordKerner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTextNodeWordKerner.m; sourceTree = "<group>"; };
+		0480CB412568F88900E26393 /* ASHighlightOverlayLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASHighlightOverlayLayer.m; sourceTree = "<group>"; };
+		0480CB422568F88900E26393 /* _AS-objc-internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "_AS-objc-internal.h"; sourceTree = "<group>"; };
+		0480CB432568F88900E26393 /* ASDisplayNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayNode.h; sourceTree = "<group>"; };
+		0480CB442568F88900E26393 /* ASTableViewProtocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTableViewProtocols.h; sourceTree = "<group>"; };
+		0480CB452568F88900E26393 /* ASTextNodeTextKitHelpers.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASTextNodeTextKitHelpers.mm; sourceTree = "<group>"; };
+		0480CB462568F88900E26393 /* ASMutableAttributedStringBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMutableAttributedStringBuilder.m; sourceTree = "<group>"; };
+		0480CB472568F88900E26393 /* ASDisplayNodeInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayNodeInternal.h; sourceTree = "<group>"; };
+		0480CB482568F88900E26393 /* _ASCoreAnimationExtras.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = _ASCoreAnimationExtras.mm; sourceTree = "<group>"; };
+		0480CB492568F88900E26393 /* ASSentinel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASSentinel.h; sourceTree = "<group>"; };
+		0480CB4A2568F88900E26393 /* _ASAsyncTransactionGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASAsyncTransactionGroup.h; sourceTree = "<group>"; };
+		0480CB4B2568F88900E26393 /* ASThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASThread.h; sourceTree = "<group>"; };
+		0480CB4C2568F88900E26393 /* _ASPendingState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASPendingState.h; sourceTree = "<group>"; };
+		0480CB4D2568F88900E26393 /* ASControlNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASControlNode.m; sourceTree = "<group>"; };
+		0480CB4E2568F88900E26393 /* _ASDisplayView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = _ASDisplayView.mm; sourceTree = "<group>"; };
+		0480CB4F2568F88900E26393 /* AsyncDisplayKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncDisplayKit.h; sourceTree = "<group>"; };
+		0480CB502568F88900E26393 /* ASTextNodeCoreTextAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextNodeCoreTextAdditions.h; sourceTree = "<group>"; };
+		0480CB512568F88900E26393 /* UIView+ASConvenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ASConvenience.h"; sourceTree = "<group>"; };
+		0480CB522568F88900E26393 /* ASTextNodeTextKitHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextNodeTextKitHelpers.h; sourceTree = "<group>"; };
+		0480CB532568F88900E26393 /* _ASAsyncTransaction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ASAsyncTransaction.m; sourceTree = "<group>"; };
+		0480CB542568F88900E26393 /* ASTextNodeShadower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTextNodeShadower.m; sourceTree = "<group>"; };
+		0480CB552568F88900E26393 /* ASImageNode+CGExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASImageNode+CGExtras.m"; sourceTree = "<group>"; };
+		0480CB562568F88900E26393 /* _ASAsyncTransactionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASAsyncTransactionContainer.h; sourceTree = "<group>"; };
+		0480CB572568F88900E26393 /* ASHighlightOverlayLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASHighlightOverlayLayer.h; sourceTree = "<group>"; };
+		0480CB582568F88900E26393 /* ASTextNodeWordKerner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextNodeWordKerner.h; sourceTree = "<group>"; };
+		0480CB592568F88900E26393 /* NSMutableAttributedString+TextKitAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableAttributedString+TextKitAdditions.h"; sourceTree = "<group>"; };
+		0480CB5A2568F88900E26393 /* ASDisplayNodeExtras.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASDisplayNodeExtras.mm; sourceTree = "<group>"; };
+		0480CB5B2568F88900E26393 /* ASDisplayNode+DebugTiming.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ASDisplayNode+DebugTiming.mm"; sourceTree = "<group>"; };
+		0480CB5C2568F88900E26393 /* ASRangeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASRangeController.h; sourceTree = "<group>"; };
+		0480CB5D2568F88900E26393 /* ASDisplayNode+AsyncDisplay.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ASDisplayNode+AsyncDisplay.mm"; sourceTree = "<group>"; };
+		0480CB5E2568F88900E26393 /* ASDisplayNode+UIViewBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "ASDisplayNode+UIViewBridge.mm"; sourceTree = "<group>"; };
+		0480CB5F2568F88900E26393 /* _ASDisplayLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = _ASDisplayLayer.mm; sourceTree = "<group>"; };
+		0480CB602568F88900E26393 /* ASCellNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCellNode.h; sourceTree = "<group>"; };
+		0480CB612568F88900E26393 /* ASControlNode+Subclasses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASControlNode+Subclasses.h"; sourceTree = "<group>"; };
+		0480CB622568F88900E26393 /* ASImageNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASImageNode.mm; sourceTree = "<group>"; };
+		0480CB632568F88900E26393 /* ASDisplayNodeExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASDisplayNodeExtras.h; sourceTree = "<group>"; };
+		0480CB642568F88900E26393 /* ASSentinel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASSentinel.m; sourceTree = "<group>"; };
+		0480CB652568F88900E26393 /* ASMutableAttributedStringBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMutableAttributedStringBuilder.h; sourceTree = "<group>"; };
+		0480CB662568F88900E26393 /* _ASScopeTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASScopeTimer.h; sourceTree = "<group>"; };
+		0480CB672568F88900E26393 /* ASTextNodeRenderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASTextNodeRenderer.mm; sourceTree = "<group>"; };
+		0480CB682568F88900E26393 /* _ASCoreAnimationExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASCoreAnimationExtras.h; sourceTree = "<group>"; };
+		0480CB692568F88900E26393 /* _ASDisplayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _ASDisplayView.h; sourceTree = "<group>"; };
+		0480CB6A2568F88900E26393 /* ASTextNodeCoreTextAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASTextNodeCoreTextAdditions.m; sourceTree = "<group>"; };
+		0480CB6B2568F88900E26393 /* ASControlNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASControlNode.h; sourceTree = "<group>"; };
+		0480CB6C2568F88900E26393 /* ASDisplayNode.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ASDisplayNode.mm; sourceTree = "<group>"; };
+		0480CB6D2568F88900E26393 /* ASTextNodeTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTextNodeTypes.h; sourceTree = "<group>"; };
+		0480CB6E2568F88900E26393 /* _ASPendingState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ASPendingState.m; sourceTree = "<group>"; };
+		0480CB6F2568F88900E26393 /* ASDisplayNode+DebugTiming.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASDisplayNode+DebugTiming.h"; sourceTree = "<group>"; };
+		0480CB702568F88900E26393 /* _ASAsyncTransactionGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _ASAsyncTransactionGroup.m; sourceTree = "<group>"; };
+		0480CB712568F88900E26393 /* ASImageNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageNode.h; sourceTree = "<group>"; };
+		0480CB722568F88900E26393 /* ASTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASTableView.h; sourceTree = "<group>"; };
+		0480CB732568F88900E26393 /* libAsyncDisplayKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAsyncDisplayKit.a; sourceTree = "<group>"; };
+		0480CB8F2568F9AF00E26393 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
+		0480CB912568F9C700E26393 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
 		4DAA6949251CDFF600EBFB05 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		4DAA694B251CE00700EBFB05 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		4DD8BFCC24D6B3F900C9A3F5 /* RCT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,12 +223,97 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0480CB8E2568F88900E26393 /* libAsyncDisplayKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0480CB2D2568F88900E26393 /* AsyncDisplayKit */ = {
+			isa = PBXGroup;
+			children = (
+				0480CB2E2568F88900E26393 /* include */,
+				0480CB732568F88900E26393 /* libAsyncDisplayKit.a */,
+			);
+			path = AsyncDisplayKit;
+			sourceTree = "<group>";
+		};
+		0480CB2E2568F88900E26393 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0480CB2F2568F88900E26393 /* ASDisplayNode+Subclasses.h */,
+				0480CB302568F88900E26393 /* ASImageNode+CGExtras.h */,
+				0480CB312568F88900E26393 /* ASDisplayNodeExtraIvars.h */,
+				0480CB322568F88900E26393 /* _ASAsyncTransactionContainer.m */,
+				0480CB332568F88900E26393 /* ASTextNode.mm */,
+				0480CB342568F88900E26393 /* ASTextNodeShadower.h */,
+				0480CB352568F88900E26393 /* ASTextNodeRenderer.h */,
+				0480CB362568F88900E26393 /* ASTextNode.h */,
+				0480CB372568F88900E26393 /* _ASAsyncTransaction.h */,
+				0480CB382568F88900E26393 /* ASAssert.h */,
+				0480CB392568F88900E26393 /* _ASAsyncTransactionContainer+Private.h */,
+				0480CB3A2568F88900E26393 /* _ASDisplayLayer.h */,
+				0480CB3B2568F88900E26393 /* ASBaseDefines.h */,
+				0480CB3C2568F88900E26393 /* UIView+ASConvenience.m */,
+				0480CB3D2568F88900E26393 /* ASImageProtocols.h */,
+				0480CB3E2568F88900E26393 /* ASDealloc2MainObject.h */,
+				0480CB3F2568F88900E26393 /* NSMutableAttributedString+TextKitAdditions.m */,
+				0480CB402568F88900E26393 /* ASTextNodeWordKerner.m */,
+				0480CB412568F88900E26393 /* ASHighlightOverlayLayer.m */,
+				0480CB422568F88900E26393 /* _AS-objc-internal.h */,
+				0480CB432568F88900E26393 /* ASDisplayNode.h */,
+				0480CB442568F88900E26393 /* ASTableViewProtocols.h */,
+				0480CB452568F88900E26393 /* ASTextNodeTextKitHelpers.mm */,
+				0480CB462568F88900E26393 /* ASMutableAttributedStringBuilder.m */,
+				0480CB472568F88900E26393 /* ASDisplayNodeInternal.h */,
+				0480CB482568F88900E26393 /* _ASCoreAnimationExtras.mm */,
+				0480CB492568F88900E26393 /* ASSentinel.h */,
+				0480CB4A2568F88900E26393 /* _ASAsyncTransactionGroup.h */,
+				0480CB4B2568F88900E26393 /* ASThread.h */,
+				0480CB4C2568F88900E26393 /* _ASPendingState.h */,
+				0480CB4D2568F88900E26393 /* ASControlNode.m */,
+				0480CB4E2568F88900E26393 /* _ASDisplayView.mm */,
+				0480CB4F2568F88900E26393 /* AsyncDisplayKit.h */,
+				0480CB502568F88900E26393 /* ASTextNodeCoreTextAdditions.h */,
+				0480CB512568F88900E26393 /* UIView+ASConvenience.h */,
+				0480CB522568F88900E26393 /* ASTextNodeTextKitHelpers.h */,
+				0480CB532568F88900E26393 /* _ASAsyncTransaction.m */,
+				0480CB542568F88900E26393 /* ASTextNodeShadower.m */,
+				0480CB552568F88900E26393 /* ASImageNode+CGExtras.m */,
+				0480CB562568F88900E26393 /* _ASAsyncTransactionContainer.h */,
+				0480CB572568F88900E26393 /* ASHighlightOverlayLayer.h */,
+				0480CB582568F88900E26393 /* ASTextNodeWordKerner.h */,
+				0480CB592568F88900E26393 /* NSMutableAttributedString+TextKitAdditions.h */,
+				0480CB5A2568F88900E26393 /* ASDisplayNodeExtras.mm */,
+				0480CB5B2568F88900E26393 /* ASDisplayNode+DebugTiming.mm */,
+				0480CB5C2568F88900E26393 /* ASRangeController.h */,
+				0480CB5D2568F88900E26393 /* ASDisplayNode+AsyncDisplay.mm */,
+				0480CB5E2568F88900E26393 /* ASDisplayNode+UIViewBridge.mm */,
+				0480CB5F2568F88900E26393 /* _ASDisplayLayer.mm */,
+				0480CB602568F88900E26393 /* ASCellNode.h */,
+				0480CB612568F88900E26393 /* ASControlNode+Subclasses.h */,
+				0480CB622568F88900E26393 /* ASImageNode.mm */,
+				0480CB632568F88900E26393 /* ASDisplayNodeExtras.h */,
+				0480CB642568F88900E26393 /* ASSentinel.m */,
+				0480CB652568F88900E26393 /* ASMutableAttributedStringBuilder.h */,
+				0480CB662568F88900E26393 /* _ASScopeTimer.h */,
+				0480CB672568F88900E26393 /* ASTextNodeRenderer.mm */,
+				0480CB682568F88900E26393 /* _ASCoreAnimationExtras.h */,
+				0480CB692568F88900E26393 /* _ASDisplayView.h */,
+				0480CB6A2568F88900E26393 /* ASTextNodeCoreTextAdditions.m */,
+				0480CB6B2568F88900E26393 /* ASControlNode.h */,
+				0480CB6C2568F88900E26393 /* ASDisplayNode.mm */,
+				0480CB6D2568F88900E26393 /* ASTextNodeTypes.h */,
+				0480CB6E2568F88900E26393 /* _ASPendingState.m */,
+				0480CB6F2568F88900E26393 /* ASDisplayNode+DebugTiming.h */,
+				0480CB702568F88900E26393 /* _ASAsyncTransactionGroup.m */,
+				0480CB712568F88900E26393 /* ASImageNode.h */,
+				0480CB722568F88900E26393 /* ASTableView.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		4DAA6947251CDFD900EBFB05 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD8BFE524D6B4F500C9A3F5 /* HomeTableViewController.swift */,
+				0480CB912568F9C700E26393 /* HomeDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +458,7 @@
 		4DD8BFFC24D6B4F500C9A3F5 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				0480CB2D2568F88900E26393 /* AsyncDisplayKit */,
 				4DD8BFFD24D6B4F500C9A3F5 /* Masonry */,
 				4DD8C01724D6B4F500C9A3F5 /* AFNetworking */,
 			);
@@ -364,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD8C03324D6B4F500C9A3F5 /* MainViewController.swift */,
+				0480CB8F2568F9AF00E26393 /* MainNavigationViewController.swift */,
 				4DD8C03424D6B4F500C9A3F5 /* JSON */,
 			);
 			path = Main;
@@ -410,7 +598,7 @@
 				TargetAttributes = {
 					4DD8BFCB24D6B3F900C9A3F5 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -454,36 +642,64 @@
 				4DD8C05124D6B4F500C9A3F5 /* AFURLRequestSerialization.m in Sources */,
 				4DD8C04F24D6B4F500C9A3F5 /* AFURLSessionManager.m in Sources */,
 				4DD8C04924D6B4F500C9A3F5 /* MASConstraint.m in Sources */,
+				0480CB892568F88900E26393 /* ASTextNodeRenderer.mm in Sources */,
 				4DD8C03A24D6B4F500C9A3F5 /* SquareTableViewController.swift in Sources */,
 				4DD8C03E24D6B4F500C9A3F5 /* ComposeTextView.swift in Sources */,
+				0480CB7B2568F88900E26393 /* ASMutableAttributedStringBuilder.m in Sources */,
 				4DD8C04124D6B4F500C9A3F5 /* MessageTableViewController.swift in Sources */,
 				4DD8C04C24D6B4F500C9A3F5 /* AFURLResponseSerialization.m in Sources */,
 				4DD8C03724D6B4F500C9A3F5 /* HomeTableViewController.swift in Sources */,
+				0480CB822568F88900E26393 /* ASDisplayNodeExtras.mm in Sources */,
 				4DD8C05624D6B4F500C9A3F5 /* AppDelegate.swift in Sources */,
+				0480CB922568F9C700E26393 /* HomeDetailViewController.swift in Sources */,
+				0480CB7D2568F88900E26393 /* ASControlNode.m in Sources */,
+				0480CB802568F88900E26393 /* ASTextNodeShadower.m in Sources */,
+				0480CB832568F88900E26393 /* ASDisplayNode+DebugTiming.mm in Sources */,
 				4DD8C04624D6B4F500C9A3F5 /* MASLayoutConstraint.m in Sources */,
 				4DAA694C251CE00700EBFB05 /* StatusModel.swift in Sources */,
+				0480CB782568F88900E26393 /* ASTextNodeWordKerner.m in Sources */,
 				4DD8C03824D6B4F500C9A3F5 /* AAService.swift in Sources */,
+				0480CB792568F88900E26393 /* ASHighlightOverlayLayer.m in Sources */,
 				4DD8C05724D6B4F500C9A3F5 /* MainViewController.swift in Sources */,
+				0480CB842568F88900E26393 /* ASDisplayNode+AsyncDisplay.mm in Sources */,
+				0480CB8A2568F88900E26393 /* ASTextNodeCoreTextAdditions.m in Sources */,
+				0480CB8D2568F88900E26393 /* _ASAsyncTransactionGroup.m in Sources */,
 				4DD8C04B24D6B4F500C9A3F5 /* MASViewAttribute.m in Sources */,
 				4DD8C04024D6B4F500C9A3F5 /* ComposeViewController.swift in Sources */,
 				4DD8C04824D6B4F500C9A3F5 /* View+MASAdditions.m in Sources */,
+				0480CB752568F88900E26393 /* ASTextNode.mm in Sources */,
 				4DD8C03D24D6B4F500C9A3F5 /* ComposeTitleView.swift in Sources */,
+				0480CB8B2568F88900E26393 /* ASDisplayNode.mm in Sources */,
+				0480CB7F2568F88900E26393 /* _ASAsyncTransaction.m in Sources */,
 				4DD8C04D24D6B4F500C9A3F5 /* AFHTTPSessionManager.m in Sources */,
 				4DD8C05424D6B4F500C9A3F5 /* AFSecurityPolicy.m in Sources */,
+				0480CB882568F88900E26393 /* ASSentinel.m in Sources */,
+				0480CB742568F88900E26393 /* _ASAsyncTransactionContainer.m in Sources */,
 				4DD8C05524D6B4F500C9A3F5 /* ProfileTableViewController.swift in Sources */,
+				0480CB772568F88900E26393 /* NSMutableAttributedString+TextKitAdditions.m in Sources */,
+				0480CB7E2568F88900E26393 /* _ASDisplayView.mm in Sources */,
+				0480CB8C2568F88900E26393 /* _ASPendingState.m in Sources */,
 				4DD8C04324D6B4F500C9A3F5 /* ViewController+MASAdditions.m in Sources */,
 				4DD8C03B24D6B4F500C9A3F5 /* DiscoverTableViewController.swift in Sources */,
+				0480CB852568F88900E26393 /* ASDisplayNode+UIViewBridge.mm in Sources */,
 				4DAA694A251CDFF600EBFB05 /* StatusCell.swift in Sources */,
 				4DD8C05324D6B4F500C9A3F5 /* AFNetworkReachabilityManager.m in Sources */,
+				0480CB862568F88900E26393 /* _ASDisplayLayer.mm in Sources */,
+				0480CB762568F88900E26393 /* UIView+ASConvenience.m in Sources */,
 				4DD8C05924D6B4F500C9A3F5 /* NullViewController.swift in Sources */,
+				0480CB812568F88900E26393 /* ASImageNode+CGExtras.m in Sources */,
 				4DD8C04E24D6B4F500C9A3F5 /* AFURLConnectionOperation.m in Sources */,
+				0480CB7A2568F88900E26393 /* ASTextNodeTextKitHelpers.mm in Sources */,
+				0480CB872568F88900E26393 /* ASImageNode.mm in Sources */,
 				4DD8C04424D6B4F500C9A3F5 /* MASCompositeConstraint.m in Sources */,
 				4DD8C05224D6B4F500C9A3F5 /* AFHTTPRequestOperation.m in Sources */,
+				0480CB7C2568F88900E26393 /* _ASCoreAnimationExtras.mm in Sources */,
 				4DD8C04724D6B4F500C9A3F5 /* NSArray+MASAdditions.m in Sources */,
 				4DD8C05024D6B4F500C9A3F5 /* AFHTTPRequestOperationManager.m in Sources */,
 				4DD8C04A24D6B4F500C9A3F5 /* MASViewConstraint.m in Sources */,
 				4DD8C04524D6B4F500C9A3F5 /* MASConstraintMaker.m in Sources */,
 				4DD8C03924D6B4F500C9A3F5 /* TLFilesBrowserViewController.swift in Sources */,
+				0480CB902568F9AF00E26393 /* MainNavigationViewController.swift in Sources */,
 				4DD8C03C24D6B4F500C9A3F5 /* UIButton+Extension.swift in Sources */,
 				4DD8C04224D6B4F500C9A3F5 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 			);
@@ -603,11 +819,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQTRW6B3JC;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = RCT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RCT/Classes/Libs/AsyncDisplayKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklewis.RCT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -621,11 +842,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FQTRW6B3JC;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = RCT/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RCT/Classes/Libs/AsyncDisplayKit",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.marklewis.RCT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

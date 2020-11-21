@@ -8,12 +8,12 @@
 
 #import "ASTextNode.h"
 
-#import "_ASDisplayLayer.h"
-#import "ASAssert.h"
-#import "ASDisplayNode+Subclasses.h"
-#import "ASHighlightOverlayLayer.h"
-#import "ASTextNodeCoreTextAdditions.h"
-#import "ASTextNodeTextKitHelpers.h"
+#import "_ASDisplayLayer.h>
+#import "ASAssert.h>
+#import "ASDisplayNode+Subclasses.h>
+#import "ASHighlightOverlayLayer.h>
+#import "ASTextNodeCoreTextAdditions.h>
+#import "ASTextNodeTextKitHelpers.h>
 
 #import "ASTextNodeRenderer.h"
 #import "ASTextNodeShadower.h"
@@ -128,6 +128,8 @@ ASDISPLAYNODE_INLINE CGFloat ceilPixelValue(CGFloat f)
     self.opaque = NO;
     self.backgroundColor = [UIColor clearColor];
 
+    self.linkAttributeNames = @[ NSLinkAttributeName ];
+
     // Accessibility
     self.isAccessibilityElement = YES;
     self.accessibilityTraits = UIAccessibilityTraitStaticText;
@@ -192,17 +194,6 @@ ASDISPLAYNODE_INLINE CGFloat ceilPixelValue(CGFloat f)
                     fminf(ceilPixelValue(renderSizePlusShadowPadding.height), constrainedSize.height));
 }
 
-- (void)willEnterHierarchy
-{
-  CALayer *layer = self.layer;
-  if (!layer.contents) {
-    // This can happen on occasion that the layer will not display unless this
-    // set.
-    [layer setNeedsDisplay];
-  }
-  [super willEnterHierarchy];
-}
-
 - (void)displayDidFinish
 {
   [super displayDidFinish];
@@ -215,16 +206,13 @@ ASDISPLAYNODE_INLINE CGFloat ceilPixelValue(CGFloat f)
   [self _invalidateRenderer];
 }
 
-- (void)didExitHierarchy
+- (void)reclaimMemory
 {
-  // We nil out the contents and kill our renderer to prevent the very large
+  // We discard the backing store and renderer to prevent the very large
   // memory overhead of maintaining these for all text nodes.  They can be
   // regenerated when layout is necessary.
-  self.contents = nil;
-
+  [super reclaimMemory];      // ASDisplayNode will set layer.contents = nil
   [self _invalidateRenderer];
-
-  [super didExitHierarchy];
 }
 
 - (void)didLoad
@@ -430,8 +418,8 @@ ASDISPLAYNODE_INLINE CGFloat ceilPixelValue(CGFloat f)
 
       // Check if delegate implements optional method, if not assume NO.
       // Should the text be highlightable/touchable?
-      if (![_delegate respondsToSelector:@selector(richTextNode:shouldHighlightLinkAttribute:value:)] ||
-          ![_delegate richTextNode:self shouldHighlightLinkAttribute:name value:value]) {
+      if (![_delegate respondsToSelector:@selector(textNode:shouldHighlightLinkAttribute:value:)] ||
+          ![_delegate textNode:self shouldHighlightLinkAttribute:name value:value]) {
         value = nil;
         name = nil;
       }
@@ -477,8 +465,8 @@ ASDISPLAYNODE_INLINE CGFloat ceilPixelValue(CGFloat f)
     }
 
     // Ask our delegate if a long-press on an attribute is relevant
-    if ([self.delegate respondsToSelector:@selector(richTextNode:shouldLongPressLinkAttribute:value:)]) {
-      return [self.delegate richTextNode:self shouldLongPressLinkAttribute:_highlightedLinkAttributeName value:_highlightedLinkAttributeValue];
+    if ([self.delegate respondsToSelector:@selector(textNode:shouldLongPressLinkAttribute:value:)]) {
+      return [self.delegate textNode:self shouldLongPressLinkAttribute:_highlightedLinkAttributeName value:_highlightedLinkAttributeValue];
     }
 
     // Otherwise we are good to go.
@@ -703,14 +691,14 @@ ASDISPLAYNODE_INLINE CGFloat ceilPixelValue(CGFloat f)
 {
   [super touchesEnded:touches withEvent:event];
 
-  if ([self _pendingLinkTap] && [_delegate respondsToSelector:@selector(richTextNode:tappedLinkAttribute:value:atPoint:textRange:)]) {
+  if ([self _pendingLinkTap] && [_delegate respondsToSelector:@selector(textNode:tappedLinkAttribute:value:atPoint:textRange:)]) {
     CGPoint point = [[touches anyObject] locationInView:self.view];
-    [_delegate richTextNode:self tappedLinkAttribute:_highlightedLinkAttributeName value:_highlightedLinkAttributeValue atPoint:point textRange:_highlightRange];
+    [_delegate textNode:self tappedLinkAttribute:_highlightedLinkAttributeName value:_highlightedLinkAttributeValue atPoint:point textRange:_highlightRange];
   }
 
   if ([self _pendingTruncationTap]) {
-    if ([_delegate respondsToSelector:@selector(richTextNodeTappedTruncationToken:)]) {
-      [_delegate richTextNodeTappedTruncationToken:self];
+    if ([_delegate respondsToSelector:@selector(textNodeTappedTruncationToken:)]) {
+      [_delegate textNodeTappedTruncationToken:self];
     }
   }
 
@@ -728,9 +716,9 @@ ASDISPLAYNODE_INLINE CGFloat ceilPixelValue(CGFloat f)
 {
   // Respond to long-press when it begins, not when it ends.
   if (longPressRecognizer.state == UIGestureRecognizerStateBegan) {
-    if ([self.delegate respondsToSelector:@selector(richTextNode:longPressedLinkAttribute:value:atPoint:textRange:)]) {
+    if ([self.delegate respondsToSelector:@selector(textNode:longPressedLinkAttribute:value:atPoint:textRange:)]) {
       CGPoint touchPoint = [_longPressGestureRecognizer locationInView:self.view];
-      [self.delegate richTextNode:self longPressedLinkAttribute:_highlightedLinkAttributeName value:_highlightedLinkAttributeValue atPoint:touchPoint textRange:_highlightRange];
+      [self.delegate textNode:self longPressedLinkAttribute:_highlightedLinkAttributeName value:_highlightedLinkAttributeValue atPoint:touchPoint textRange:_highlightRange];
     }
   }
 }

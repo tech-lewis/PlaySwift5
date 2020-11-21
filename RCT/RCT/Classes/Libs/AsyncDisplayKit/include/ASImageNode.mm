@@ -8,10 +8,10 @@
 
 #import "ASImageNode.h"
 
-#import "_ASDisplayLayer.h"
-#import "_ASCoreAnimationExtras.h"
-#import "ASAssert.h"
-#import "ASDisplayNode+Subclasses.h"
+#import "_ASDisplayLayer.h>
+#import "_ASCoreAnimationExtras.h>
+#import "ASAssert.h>
+#import "ASDisplayNode+Subclasses.h>
 
 #import "ASImageNode+CGExtras.h"
 
@@ -244,20 +244,6 @@
   }
 
   return result;
-}
-
-- (void)didExitHierarchy
-{
-  self.contents = nil;
-  [super didExitHierarchy];
-}
-
-- (void)willEnterHierarchy
-{
-  [super willEnterHierarchy];
-
-  if (!self.layer.contents)
-    [self setNeedsDisplay];
 }
 
 - (void)displayDidFinish
