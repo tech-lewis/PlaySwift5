@@ -11,5 +11,8 @@
 #import "Masonry.h"
 #import "AFNetworking.h"
 
-
+/// ASDK beta2 头文件
+#import "ASTableView.h"
+#import "ASCellNode.h"
+#import "ASTextNode.h"
 #endif /* Swift_Bridge_h */

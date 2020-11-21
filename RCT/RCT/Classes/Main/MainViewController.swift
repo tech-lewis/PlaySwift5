@@ -137,7 +137,7 @@ class MainViewController: UITabBarController {
         tabBar.tintColor = UIColor.orange
         
         // 5.创建导航控制器
-        let nav = UINavigationController()
+        let nav = MainNavigationViewController()
         nav.addChildViewController(childController)
         
         // 6.添加控制器到tabbarVC  需要iOS5

@@ -6,7 +6,7 @@
  },
  {
      "vcName": "MessageTableViewController",
-     "title": "分类",
+     "title": "消息",
      "imageName": "tabbar_message_center"
  },
  {
@@ -16,7 +16,7 @@
  },
  {
      "vcName": "SquareTableViewController",
-     "title": "购物车",
+     "title": "发现",
      "imageName": "tabbar_discover"
  },
  {

@@ -31,8 +31,8 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-         let imagePickerc = info[UIImagePickerControllerOriginalImage] as! UIImage
-        // cameraView.image.image = imagePickerc
+        let imagePickerc = info[UIImagePickerControllerOriginalImage] as! UIImage
+        //cameraView.image.image = imagePickerc
         self.dismiss(animated: true, completion: nil)
        
     }
@@ -53,10 +53,10 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
                 var sourceType = UIImagePickerController().sourceType
                 sourceType = .camera
                 
-//                if !UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
-//                    print("无法调用相机")
-//                    sourceType = UIImagePickerController.SourceType.photoLibrary //改为调用相册
-//                }
+                if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera) == false {
+                    print("无法调用相机")
+                    sourceType = UIImagePickerController.SourceType.photoLibrary //改为调用相册
+                }
                 
                 
                 let pickerPhoto = UIImagePickerController()
@@ -77,6 +77,10 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(alertView, animated: true, completion: nil)
         } else {
             // Fallback on earlier versions
+//            let alertView = UIAlertView(title: "添加图片", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "打开相册", "打开相机")
+            let actionSheetView = UIActionSheet(title: "添加图片", delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: "取消", otherButtonTitles: "打开相册", "打开图片")
+            actionSheetView.show(in: self.view)
+            
         }
         
     }
@@ -170,15 +174,31 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
 
 
 
-
-
 extension ComposeViewController: UITextViewDelegate
 {
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         customTextView.resignFirstResponder()
     }
+}
+
+
+extension ComposeViewController: UIActionSheetDelegate {
+    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
+        if buttonIndex != actionSheet.destructiveButtonIndex {
+            let pickerCamera = UIImagePickerController()
+            pickerCamera.delegate = self
+            self.present(pickerCamera, animated: true, completion: nil)
+        }
+        
+    }
+//    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+//        print(buttonIndex)
+//        if buttonIndex != alertView.cancelButtonIndex {
+//
+//        }
+//    }
 }
