@@ -8,10 +8,6 @@
 
 #import "ASImageNode+CGExtras.h"
 
-// TODO rewrite these to be closer to the intended use -- take UIViewContentMode as param, CGRect destinationBounds, CGSize sourceSize.
-static CGSize _ASSizeFillWithAspectRatio(CGFloat aspectRatio, CGSize constraints);
-static CGSize _ASSizeFitWithAspectRatio(CGFloat aspectRatio, CGSize constraints);
-
 static CGSize _ASSizeFillWithAspectRatio(CGFloat sizeToScaleAspectRatio, CGSize destinationSize)
 {
   CGFloat destinationAspectRatio = destinationSize.width / destinationSize.height;
@@ -21,6 +17,10 @@ static CGSize _ASSizeFillWithAspectRatio(CGFloat sizeToScaleAspectRatio, CGSize 
     return CGSizeMake(destinationSize.width, floorf(destinationSize.width / sizeToScaleAspectRatio));
   }
 }
+// TODO rewrite these to be closer to the intended use -- take UIViewContentMode as param, CGRect destinationBounds, CGSize sourceSize.
+static CGSize _ASSizeFillWithAspectRatio(CGFloat aspectRatio, CGSize constraints);
+static CGSize _ASSizeFitWithAspectRatio(CGFloat aspectRatio, CGSize constraints);
+
 
 static CGSize _ASSizeFitWithAspectRatio(CGFloat aspectRatio, CGSize constraints)
 {

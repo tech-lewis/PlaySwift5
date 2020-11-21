@@ -8,10 +8,10 @@
 
 #import "ASImageNode.h"
 
-#import "_ASDisplayLayer.h>
-#import "_ASCoreAnimationExtras.h>
-#import "ASAssert.h>
-#import "ASDisplayNode+Subclasses.h>
+#import "_ASDisplayLayer.h"
+#import "_ASCoreAnimationExtras.h"
+#import "ASAssert.h"
+#import "ASDisplayNode+Subclasses.h"
 
 #import "ASImageNode+CGExtras.h"
 
