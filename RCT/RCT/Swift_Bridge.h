@@ -13,6 +13,7 @@
 
 /// ASDK 1.0GM 头文件
 #import "AsyncDisplayKit.h"
+#import "MyStatusCell.h"
 //#import "ASTableView.h"
 //#import "ASCellNode.h"
 //#import "ASTextNode.h"

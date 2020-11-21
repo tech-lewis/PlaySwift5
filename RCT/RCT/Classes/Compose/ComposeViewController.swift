@@ -77,9 +77,8 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(alertView, animated: true, completion: nil)
         } else {
             // Fallback on earlier versions
-//            let alertView = UIAlertView(title: "添加图片", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "打开相册", "打开相机")
-            let actionSheetView = UIActionSheet(title: "添加图片", delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: "取消", otherButtonTitles: "打开相册", "打开图片")
-            actionSheetView.show(in: self.view)
+            let alertView = UIAlertView(title: "添加图片", message: "", delegate: self, cancelButtonTitle: "取消", otherButtonTitles: "打开相册", "打开相机")
+            alertView.show()
             
         }
         
@@ -186,9 +185,9 @@ extension ComposeViewController: UITextViewDelegate
 }
 
 
-extension ComposeViewController: UIActionSheetDelegate {
-    func actionSheet(_ actionSheet: UIActionSheet, clickedButtonAt buttonIndex: Int) {
-        if buttonIndex != actionSheet.destructiveButtonIndex {
+extension ComposeViewController: UIAlertViewDelegate {
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        if buttonIndex != alertView.cancelButtonIndex {
             let pickerCamera = UIImagePickerController()
             pickerCamera.delegate = self
             self.present(pickerCamera, animated: true, completion: nil)

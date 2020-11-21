@@ -36,6 +36,8 @@
 		0480CB8E2568F88900E26393 /* libAsyncDisplayKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0480CB732568F88900E26393 /* libAsyncDisplayKit.a */; };
 		0480CB902568F9AF00E26393 /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB8F2568F9AF00E26393 /* MainNavigationViewController.swift */; };
 		0480CB922568F9C700E26393 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB912568F9C700E26393 /* HomeDetailViewController.swift */; };
+		0480CB942568FE9B00E26393 /* DiscoverDetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB932568FE9B00E26393 /* DiscoverDetailWebViewController.swift */; };
+		0480CB9825690EBB00E26393 /* MyStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB9725690EBB00E26393 /* MyStatusCell.m */; };
 		4DAA694A251CDFF600EBFB05 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6949251CDFF600EBFB05 /* StatusCell.swift */; };
 		4DAA694C251CE00700EBFB05 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA694B251CE00700EBFB05 /* StatusModel.swift */; };
 		4DD8BFD724D6B3F900C9A3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8BFD624D6B3F900C9A3F5 /* Assets.xcassets */; };
@@ -149,6 +151,9 @@
 		0480CB732568F88900E26393 /* libAsyncDisplayKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libAsyncDisplayKit.a; sourceTree = "<group>"; };
 		0480CB8F2568F9AF00E26393 /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		0480CB912568F9C700E26393 /* HomeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDetailViewController.swift; sourceTree = "<group>"; };
+		0480CB932568FE9B00E26393 /* DiscoverDetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDetailWebViewController.swift; sourceTree = "<group>"; };
+		0480CB9625690EBB00E26393 /* MyStatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyStatusCell.h; sourceTree = "<group>"; };
+		0480CB9725690EBB00E26393 /* MyStatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyStatusCell.m; sourceTree = "<group>"; };
 		4DAA6949251CDFF600EBFB05 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		4DAA694B251CE00700EBFB05 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		4DD8BFCC24D6B3F900C9A3F5 /* RCT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +238,7 @@
 		0480CB2D2568F88900E26393 /* AsyncDisplayKit */ = {
 			isa = PBXGroup;
 			children = (
+				0480CB9525690E9B00E26393 /* Views */,
 				0480CB2E2568F88900E26393 /* include */,
 				0480CB732568F88900E26393 /* libAsyncDisplayKit.a */,
 			);
@@ -312,6 +318,15 @@
 				0480CB722568F88900E26393 /* ASTableView.h */,
 			);
 			path = include;
+			sourceTree = "<group>";
+		};
+		0480CB9525690E9B00E26393 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0480CB9625690EBB00E26393 /* MyStatusCell.h */,
+				0480CB9725690EBB00E26393 /* MyStatusCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		4DAA6947251CDFD900EBFB05 /* Views */ = {
@@ -416,6 +431,7 @@
 				4DD8BFEC24D6B4F500C9A3F5 /* TLFilesBrowserViewController.swift */,
 				4DD8BFED24D6B4F500C9A3F5 /* SquareTableViewController.swift */,
 				4DD8BFEE24D6B4F500C9A3F5 /* DiscoverTableViewController.swift */,
+				0480CB932568FE9B00E26393 /* DiscoverDetailWebViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -654,6 +670,7 @@
 				0480CB922568F9C700E26393 /* HomeDetailViewController.swift in Sources */,
 				0480CB7D2568F88900E26393 /* ASControlNode.m in Sources */,
 				0480CB802568F88900E26393 /* ASTextNodeShadower.m in Sources */,
+				0480CB942568FE9B00E26393 /* DiscoverDetailWebViewController.swift in Sources */,
 				0480CB832568F88900E26393 /* ASDisplayNode+DebugTiming.mm in Sources */,
 				4DD8C04624D6B4F500C9A3F5 /* MASLayoutConstraint.m in Sources */,
 				4DAA694C251CE00700EBFB05 /* StatusModel.swift in Sources */,
@@ -661,6 +678,7 @@
 				4DD8C03824D6B4F500C9A3F5 /* AAService.swift in Sources */,
 				0480CB792568F88900E26393 /* ASHighlightOverlayLayer.m in Sources */,
 				4DD8C05724D6B4F500C9A3F5 /* MainViewController.swift in Sources */,
+				0480CB9825690EBB00E26393 /* MyStatusCell.m in Sources */,
 				0480CB842568F88900E26393 /* ASDisplayNode+AsyncDisplay.mm in Sources */,
 				0480CB8A2568F88900E26393 /* ASTextNodeCoreTextAdditions.m in Sources */,
 				0480CB8D2568F88900E26393 /* _ASAsyncTransactionGroup.m in Sources */,

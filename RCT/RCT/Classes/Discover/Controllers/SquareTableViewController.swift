@@ -14,7 +14,7 @@ class SquareTableViewController: UITableViewController {
     
     func setupData(){
         for i in 1...100 {
-            listDatas.append("商品列表---\(i)")
+            listDatas.append("DISCOVER --- \(i)")
         }
     }
     /// MARK -
@@ -23,7 +23,7 @@ class SquareTableViewController: UITableViewController {
         self.setupData()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
@@ -46,6 +46,7 @@ class SquareTableViewController: UITableViewController {
         var cell = tableView.dequeueReusableCell(withIdentifier: identifier)
         if cell == nil{
             cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier:  identifier)
+            cell?.selectionStyle = .blue //iOS 7 之后失效了的属性
         }
         // Configure the cell...
         //setup
@@ -55,6 +56,12 @@ class SquareTableViewController: UITableViewController {
     }
     
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let controller = DiscoverDetailWebViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

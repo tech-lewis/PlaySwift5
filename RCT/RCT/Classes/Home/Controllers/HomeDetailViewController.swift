@@ -28,7 +28,7 @@ class HomeDetailViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         tableView.frame = view.bounds
-        DispatchQueue.main.asyncAfter(deadline: .now()+0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.30) {
             self.tableView.isHidden = false
         }
     }
@@ -44,8 +44,8 @@ class HomeDetailViewController: UIViewController {
 // MARK: - Public
 extension HomeDetailViewController: ASTableViewDelegate, ASTableViewDataSource {
     func tableView(_ tableView: ASTableView!, nodeForRowAt indexPath: IndexPath!) -> ASCellNode! {
-        let cell = ASTextCellNode()
-        cell?.text = "hello world"
+        let cell = MyStatusCell()
+        cell?.text = "hello World!"
         return cell
     }
     
