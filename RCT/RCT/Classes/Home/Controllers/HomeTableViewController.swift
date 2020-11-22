@@ -16,14 +16,28 @@ class HomeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
+        
+        
+        
+        // 当前分辨率截屏
+        // let v = self.tabBarController?.view
+//        UIGraphicsBeginImageContextWithOptions(v?.bounds.size ?? .zero, false, UIScreen.main.scale)
+//        v?.layer.render(in: UIGraphicsGetCurrentContext()!)
+//        guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return }
+//        UIGraphicsEndImageContext()
+//        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+        
     }
+
     
     // MARK: - 设置数据
     func setupData(){
+        //self.navigationController?.title = ""
         for i in 1...100 {
             listDatas.append("详情---\(i)")
         }
     }
+    
 }
 
 

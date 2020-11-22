@@ -60,6 +60,7 @@ class SquareTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let controller = DiscoverDetailWebViewController()
+        controller.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(controller, animated: true)
     }
     /*

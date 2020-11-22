@@ -75,6 +75,7 @@
     },
     {
       "extent" : "full-screen",
+      "filename" : "4sLaunch-1.png",
       "idiom" : "iphone",
       "minimum-system-version" : "7.0",
       "orientation" : "portrait",
@@ -96,6 +97,7 @@
     },
     {
       "extent" : "full-screen",
+      "filename" : "4sLaunch.png",
       "idiom" : "iphone",
       "orientation" : "portrait",
       "scale" : "2x"

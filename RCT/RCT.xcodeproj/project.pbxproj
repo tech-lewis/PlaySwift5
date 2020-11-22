@@ -38,6 +38,7 @@
 		0480CB922568F9C700E26393 /* HomeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB912568F9C700E26393 /* HomeDetailViewController.swift */; };
 		0480CB942568FE9B00E26393 /* DiscoverDetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB932568FE9B00E26393 /* DiscoverDetailWebViewController.swift */; };
 		0480CB9825690EBB00E26393 /* MyStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0480CB9725690EBB00E26393 /* MyStatusCell.m */; };
+		0480CBBF2569172F00E26393 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0480CBBE2569172F00E26393 /* LaunchScreen.storyboard */; };
 		4DAA694A251CDFF600EBFB05 /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6949251CDFF600EBFB05 /* StatusCell.swift */; };
 		4DAA694C251CE00700EBFB05 /* StatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA694B251CE00700EBFB05 /* StatusModel.swift */; };
 		4DD8BFD724D6B3F900C9A3F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8BFD624D6B3F900C9A3F5 /* Assets.xcassets */; };
@@ -76,7 +77,6 @@
 		4DD8C05724D6B4F500C9A3F5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8C03324D6B4F500C9A3F5 /* MainViewController.swift */; };
 		4DD8C05824D6B4F500C9A3F5 /* MainVCSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8C03524D6B4F500C9A3F5 /* MainVCSettings.json */; };
 		4DD8C05924D6B4F500C9A3F5 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8C03624D6B4F500C9A3F5 /* NullViewController.swift */; };
-		4DD8C05E24D6BCB800C9A3F5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DD8C05D24D6BCB800C9A3F5 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +154,7 @@
 		0480CB932568FE9B00E26393 /* DiscoverDetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDetailWebViewController.swift; sourceTree = "<group>"; };
 		0480CB9625690EBB00E26393 /* MyStatusCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyStatusCell.h; sourceTree = "<group>"; };
 		0480CB9725690EBB00E26393 /* MyStatusCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyStatusCell.m; sourceTree = "<group>"; };
+		0480CBBE2569172F00E26393 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DAA6949251CDFF600EBFB05 /* StatusCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		4DAA694B251CE00700EBFB05 /* StatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusModel.swift; sourceTree = "<group>"; };
 		4DD8BFCC24D6B3F900C9A3F5 /* RCT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,7 +221,6 @@
 		4DD8C03524D6B4F500C9A3F5 /* MainVCSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainVCSettings.json; sourceTree = "<group>"; };
 		4DD8C03624D6B4F500C9A3F5 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 		4DD8C05B24D6B55F00C9A3F5 /* Swift_Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Swift_Bridge.h; sourceTree = "<group>"; };
-		4DD8C05D24D6BCB800C9A3F5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -365,10 +365,10 @@
 			isa = PBXGroup;
 			children = (
 				4DD8BFE124D6B4F500C9A3F5 /* Classes */,
-				4DD8C05D24D6BCB800C9A3F5 /* Default-568h@2x.png */,
 				4DD8C05B24D6B55F00C9A3F5 /* Swift_Bridge.h */,
 				4DD8BFDB24D6B3F900C9A3F5 /* Info.plist */,
 				4DD8BFD624D6B3F900C9A3F5 /* Assets.xcassets */,
+				0480CBBE2569172F00E26393 /* LaunchScreen.storyboard */,
 			);
 			path = RCT;
 			sourceTree = "<group>";
@@ -642,7 +642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DD8BFD724D6B3F900C9A3F5 /* Assets.xcassets in Resources */,
-				4DD8C05E24D6BCB800C9A3F5 /* Default-568h@2x.png in Resources */,
+				0480CBBF2569172F00E26393 /* LaunchScreen.storyboard in Resources */,
 				4DD8C05824D6B4F500C9A3F5 /* MainVCSettings.json in Resources */,
 				4DD8C03F24D6B4F500C9A3F5 /* ComposeViewController.storyboard in Resources */,
 			);
@@ -837,6 +837,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQTRW6B3JC;
@@ -860,6 +861,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FQTRW6B3JC;

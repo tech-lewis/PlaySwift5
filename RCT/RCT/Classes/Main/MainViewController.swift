@@ -149,6 +149,9 @@ class MainViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tabBar.barStyle = UIBarStyle.black
+        UITabBar.appearance().backgroundColor = UIColor.black
+
+        UITabBar.appearance().backgroundImage = UIImage()
         tabBar.addSubview(composeButton)
         
         // 保存按钮尺寸

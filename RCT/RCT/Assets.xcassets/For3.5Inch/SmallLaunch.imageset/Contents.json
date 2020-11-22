@@ -1,0 +1,22 @@
+{
+  "images" : [
+    {
+      "filename" : "2E867338-A0A6-455F-9F6E-0DDA6119EA91.jpeg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "4sLaunch.jpeg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
